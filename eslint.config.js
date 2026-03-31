@@ -1,26 +1,22 @@
-import tsParser from '@typescript-eslint/parser';
-import tsEslint from 'typescript-eslint';
+import js from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
 
 export default [
+  js.configs.recommended,
   {
     files: ['src/**/*.ts'],
     languageOptions: {
-      ecmaVersion: 2022,
+      parser: tsparser,
+      ecmaVersion: 'latest',
       sourceType: 'module',
-      parser: tsParser,
-      parserOptions: {
-        project: './tsconfig.json',
-      },
     },
     plugins: {
-      '@typescript-eslint': tsEslint.plugin,
+      '@typescript-eslint': tseslint,
     },
     rules: {
-      ...tsEslint.configs.recommended.rules,
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-explicit-any': 'off', // MCP SDK requires any types
-      'no-console': 'off',
-      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
 ];
