@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-03-31
+
 ### Added
-- GitHub Actions workflows for CI/CD
-- CodeQL security analysis
-- Dependabot for dependency updates
-- Issue and PR templates
-- Community standards (CODE_OF_CONDUCT, CONTRIBUTING, SECURITY, SUPPORT)
-- Automated npm publishing on release
+- Dual publishing support to both npm and GitHub Packages
+- GitHub Actions workflow for automated dual publishing
+- Package visibility on GitHub Packages registry
+
+### Changed
+- Updated package.json with explicit npm registry configuration
+- Improved .npmrc with clearer documentation
+- Replaced release.yml with npm-publish.yml for better workflow organization
 
 ## [1.0.0] - 2025-03-31
 
