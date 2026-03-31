@@ -35,7 +35,9 @@ jobs:
         run: npm test
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: |
+          rm -f .npmrc
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -67,7 +69,9 @@ jobs:
         run: npm test
 
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: |
+          rm -f .npmrc
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

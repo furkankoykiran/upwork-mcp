@@ -1,6 +1,6 @@
 {
   "name": "@furkankoykiran/upwork-mcp",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "MCP server for Upwork's GraphQL API — job search, proposal management, profile tracking",
   "type": "module",
   "main": "dist/index.js",

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-03-31
+
+### Fixed
+- Remove .npmrc before publish to avoid registry conflicts
+- Both NPM and GitHub Packages now publish correctly
+
 ## [1.2.1] - 2026-03-31
 
 ### Fixed
