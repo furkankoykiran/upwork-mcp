@@ -3,10 +3,10 @@
  * Handles persistent storage, token refresh, and validation
  */
 
-import fs from "fs/promises";
-import path from "path";
-import { existsSync } from "fs";
-import { TokenExpiredError, AuthenticationError } from "../client/errors.js";
+import fs from 'fs/promises';
+import path from 'path';
+import { existsSync } from 'fs';
+import { TokenExpiredError, AuthenticationError } from '../client/errors.js';
 
 export interface TokenData {
   accessToken: string;
@@ -22,8 +22,8 @@ export interface TokenStorageConfig {
   tokenFile: string;
 }
 
-const DEFAULT_STORAGE_DIR = path.join(process.env.HOME || "", ".upwork-mcp");
-const DEFAULT_TOKEN_FILE = "token.json";
+const DEFAULT_STORAGE_DIR = path.join(process.env.HOME || '', '.upwork-mcp');
+const DEFAULT_TOKEN_FILE = 'token.json';
 
 /**
  * Token storage manager
@@ -54,7 +54,7 @@ export class TokenStore {
       await fs.mkdir(this.config.storageDir, { mode: 0o700, recursive: true });
     } catch (error) {
       throw new AuthenticationError(
-        `Failed to create storage directory: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Failed to create storage directory: ${error instanceof Error ? error.message : 'Unknown error'}`
       );
     }
   }
@@ -82,7 +82,7 @@ export class TokenStore {
       });
     } catch (error) {
       throw new AuthenticationError(
-        `Failed to save token: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Failed to save token: ${error instanceof Error ? error.message : 'Unknown error'}`
       );
     }
   }
@@ -102,12 +102,12 @@ export class TokenStore {
     }
 
     try {
-      const content = await fs.readFile(tokenPath, "utf-8");
+      const content = await fs.readFile(tokenPath, 'utf-8');
       this.tokenData = JSON.parse(content) as TokenData;
       return this.tokenData;
     } catch (error) {
       throw new AuthenticationError(
-        `Failed to load token: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Failed to load token: ${error instanceof Error ? error.message : 'Unknown error'}`
       );
     }
   }
@@ -120,7 +120,7 @@ export class TokenStore {
     const tokenData = await this.loadToken();
 
     if (!tokenData) {
-      throw new AuthenticationError("No token found. Please authenticate first.");
+      throw new AuthenticationError('No token found. Please authenticate first.');
     }
 
     if (this.isTokenExpired(tokenData)) {
@@ -179,7 +179,7 @@ export class TokenStore {
         await fs.unlink(tokenPath);
       } catch (error) {
         throw new AuthenticationError(
-          `Failed to clear token: ${error instanceof Error ? error.message : "Unknown error"}`
+          `Failed to clear token: ${error instanceof Error ? error.message : 'Unknown error'}`
         );
       }
     }

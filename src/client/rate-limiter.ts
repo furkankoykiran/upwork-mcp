@@ -3,7 +3,7 @@
  * Prevents exceeding rate limits and implements backoff
  */
 
-import { RateLimitError } from "./errors.js";
+import { RateLimitError } from './errors.js';
 
 export interface RateLimitConfig {
   perSecond: number;
@@ -71,16 +71,12 @@ export class RateLimiter {
     const waitTime = this.calculateWaitTime(now);
 
     if (waitTime > 0) {
-      throw new RateLimitError(
-        "Rate limit exceeded",
-        Math.ceil(waitTime / 1000),
-        {
-          secondTokens: this.secondTokens,
-          minuteTokens: this.minuteTokens,
-          dayTokens: this.dayTokens,
-          waitTime: Math.ceil(waitTime / 1000),
-        }
-      );
+      throw new RateLimitError('Rate limit exceeded', Math.ceil(waitTime / 1000), {
+        secondTokens: this.secondTokens,
+        minuteTokens: this.minuteTokens,
+        dayTokens: this.dayTokens,
+        waitTime: Math.ceil(waitTime / 1000),
+      });
     }
   }
 
@@ -95,20 +91,14 @@ export class RateLimiter {
     // Refill second bucket
     if (secondElapsed >= 1000) {
       const secondsPassed = Math.floor(secondElapsed / 1000);
-      this.secondTokens = Math.min(
-        this.perSecond,
-        this.secondTokens + secondsPassed
-      );
+      this.secondTokens = Math.min(this.perSecond, this.secondTokens + secondsPassed);
       this.lastSecondTime = now;
     }
 
     // Refill minute bucket
     if (minuteElapsed >= 60000) {
       const minutesPassed = Math.floor(minuteElapsed / 60000);
-      this.minuteTokens = Math.min(
-        this.perMinute,
-        this.minuteTokens + minutesPassed
-      );
+      this.minuteTokens = Math.min(this.perMinute, this.minuteTokens + minutesPassed);
       this.lastMinuteTime = now;
     }
 
@@ -180,8 +170,8 @@ export class RateLimiter {
  */
 export function createDefaultRateLimiter(): RateLimiter {
   return new RateLimiter({
-    perSecond: parseInt(process.env.RATE_LIMIT_PER_SECOND || "10", 10),
-    perMinute: parseInt(process.env.RATE_LIMIT_PER_MINUTE || "300", 10),
-    perDay: parseInt(process.env.RATE_LIMIT_PER_DAY || "40000", 10),
+    perSecond: parseInt(process.env.RATE_LIMIT_PER_SECOND || '10', 10),
+    perMinute: parseInt(process.env.RATE_LIMIT_PER_MINUTE || '300', 10),
+    perDay: parseInt(process.env.RATE_LIMIT_PER_DAY || '40000', 10),
   });
 }
