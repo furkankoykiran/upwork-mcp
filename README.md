@@ -281,7 +281,7 @@ npm run lint
 npm run format
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## Project Structure
 
@@ -294,9 +294,22 @@ upwork-mcp/
 │   ├── queries/              # GraphQL queries and mutations
 │   ├── tools/                # MCP tool implementations
 │   └── types/                # TypeScript type definitions
-├── .github/                  # GitHub workflows and templates
-├── dist/                     # Compiled output
-└── docs/                     # Additional documentation
+├── .github/
+│   ├── workflows/            # CI/CD workflows (CI, CodeQL, Release, Stale)
+│   ├── pull_request_template/
+│   ├── ISSUE_TEMPLATE/       # Issue templates (Bug, Feature, Question)
+│   ├── CONTRIBUTING.md       # Contribution guidelines
+│   ├── CODE_OF_CONDUCT.md    # Community guidelines
+│   ├── SECURITY.md           # Security policy
+│   └── SUPPORT.md            # Support guidelines
+├── dist/                     # Compiled output (gitignored)
+├── node_modules/             # Dependencies (gitignored)
+├── eslint.config.js          # ESLint configuration
+├── tsconfig.json             # TypeScript configuration
+├── package.json              # Project metadata
+├── CHANGELOG.md              # Version history
+├── LICENSE                   # MIT License
+└── README.md                 # This file
 ```
 
 ## License
@@ -307,9 +320,10 @@ MIT © [Furkan Köykıran](https://github.com/furkankoykiran) - see [LICENSE](LI
 
 - [npm Package](https://www.npmjs.com/package/@furkankoykiran/upwork-mcp)
 - [Documentation](https://github.com/furkankoykiran/upwork-mcp#readme)
-- [Contributing](CONTRIBUTING.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Security Policy](SECURITY.md)
+- [Contributing](.github/CONTRIBUTING.md)
+- [Code of Conduct](.github/CODE_OF_CONDUCT.md)
+- [Security Policy](.github/SECURITY.md)
+- [Support](.github/SUPPORT.md)
 - [Changelog](CHANGELOG.md)
 
 ## Acknowledgments
