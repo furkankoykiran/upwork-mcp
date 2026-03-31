@@ -1,0 +1,79 @@
+{
+  "name": "@furkankoykiran/upwork-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Upwork's GraphQL API — job search, proposal management, profile tracking",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "upwork-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "auth": "node dist/index.js auth",
+    "logout": "node dist/index.js logout",
+    "check": "node dist/index.js check",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test",
+    "version": "git add CHANGELOG.md && git commit -m 'chore: update CHANGELOG for v%s' || true"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "upwork",
+    "freelancing",
+    "graphql",
+    "job-search",
+    "proposal-management",
+    "claude",
+    "ai-assistant"
+  ],
+  "author": {
+    "name": "Furkan Köykıran",
+    "email": "furkankoykiran@gmail.com",
+    "url": "https://github.com/furkankoykiran"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furkankoykiran/upwork-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/furkankoykiran/upwork-mcp/issues"
+  },
+  "homepage": "https://github.com/furkankoykiran/upwork-mcp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "graphql-request": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.6",
+    "eslint": "^9.14.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  }
+}
