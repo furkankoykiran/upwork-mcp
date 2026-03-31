@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-03-31
+
+### Fixed
+- Remove registry from package.json to allow dual publishing
+- GitHub Packages now correctly publishes to GitHub registry
+
 ## [1.2.0] - 2026-03-31
 
 ### Added
