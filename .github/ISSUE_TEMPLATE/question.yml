@@ -1,0 +1,52 @@
+name: Question
+description: Ask a question about the project
+title: '[QUESTION] '
+labels: ['question']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? Please check the [documentation](README.md) and [existing issues](https://github.com/furkankoykiran/upwork-mcp/issues?q=is%3Aissue) first.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Ask your question clearly and concisely
+      placeholder: How do I...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide any relevant context
+      placeholder: I'm trying to...
+
+  - type: textarea
+    id: attempts
+    attributes:
+      label: What Have You Tried?
+      description: Describe what you've already tried
+      placeholder: I tried...
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your environment details
+      placeholder: |
+        - OS: Windows 11
+        - Node.js: v20.0.0
+        - Version: 1.0.0
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Before asking
+      options:
+        - label: I have read the documentation
+          required: true
+        - label: I have searched existing issues and discussions
+          required: true
