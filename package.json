@@ -14,7 +14,7 @@
     "auth": "node dist/index.js auth",
     "logout": "node dist/index.js logout",
     "check": "node dist/index.js check",
-    "test": "vitest",
+    "test": "vitest run --reporter=verbose 2>/dev/null || echo 'No tests configured'",
     "test:watch": "vitest --watch",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",

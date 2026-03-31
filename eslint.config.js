@@ -18,7 +18,7 @@ export default [
     rules: {
       ...tsEslint.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'off', // MCP SDK requires any types
       'no-console': 'off',
       'no-unused-vars': 'off',
     },
