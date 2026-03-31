@@ -20,7 +20,7 @@ import type {
   UpdateProposalResponse,
   WithdrawProposalResponse,
 } from '../types/api.js';
-import { formatMCPError, UpworkMCPError } from '../client/errors.js';
+import { formatMCPError } from '../client/errors.js';
 
 // ============================================================================
 // List Proposals Tool

@@ -31,7 +31,7 @@ export class OAuthManager {
   private config: OAuthConfig;
   private tokenStore: TokenStore;
 
-  constructor(config?: Partial<OAuthConfig>) {
+  constructor(_config?: Partial<OAuthConfig>) {
     this.config = {
       clientId: process.env.UPWORK_CLIENT_ID || "",
       clientSecret: process.env.UPWORK_CLIENT_SECRET || "",

@@ -4,7 +4,6 @@
 
 import { UpworkGraphQLClient } from '../client/graphql.js';
 import { GET_MY_PROFILE, GET_CONNECTS_BALANCE } from '../queries/profile.js';
-import type { TalentProfile } from '../types/api.js';
 
 /**
  * Get freelancer profile

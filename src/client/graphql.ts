@@ -148,7 +148,7 @@ export class UpworkGraphQLClient {
   private async executeWithTimeout<T>(
     query: string,
     variables: Record<string, unknown> | undefined,
-    timeout: number
+    _timeout: number
   ): Promise<T> {
     try {
       const response = await this.client.request<GraphQLResponse<T>>(query, variables);
